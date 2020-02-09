@@ -1,0 +1,68 @@
+
+
+<h1>Books</h1>
+ <% @books.each do |book| %>
+
+
+<div class="index-box">
+
+	<div class="index-title">
+ <h2>Title</h2>
+ <%= book.title %>
+</div>
+
+<div class="index-body">
+ <h2>Body</h2>
+ <%= book.body %>
+</div>
+
+<div class="sed">
+ <%=link_to"show", book_path(book.id) %>
+ <%=link_to"edit",edit_book_path(book.id) %>
+ <%=link_to"destroy", book_path(book.id),method: :delete, "data-confirm" => "Are you sure?"  %>
+</div>
+</div>
+ <% end %>
+
+
+
+
+<h1>New book</h1>
+
+<% @book.errors.full_messages.each do |error| %>
+<div class="form-error">
+<%= error %>
+<% end %>
+
+<%= form_for(@book) do |f|  %>
+
+
+<h4>Title</h4>
+<%= f.text_field :title %>
+
+<h4>Body</h4>
+<%= f.text_area :body %>
+
+<div class="new-book-btn">
+<%= f.submit 'Creat book' %>
+</div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<% end %>
+
+<!-- ここまでのあいだにコードを書きましょう -->
